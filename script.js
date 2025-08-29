@@ -43,3 +43,16 @@ document.querySelectorAll(".call-btn").forEach((button) => {
 clearBtn.addEventListener("click", () => {
   callHistory.innerHTML = "";
 });
+
+let copyCount = 0;
+
+document.getElementsByClass("copyBtn").addEventListener("click", function () {
+  let hotlineText = document.getElementsByClass("hotline-number").innerText;
+
+  navigator.clipboard.writeText(hotlineText).then(() => {
+    alert("Hotline number copied!");
+
+    copyCount++;
+    document.getElementById("copyCount").innerText = copyCount;
+  });
+});
